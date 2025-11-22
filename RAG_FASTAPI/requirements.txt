@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+langchain
+tiktoken
+faiss-cpu
+python-dotenv
+requests
+numpy
+pandas
+sentence-transformers
+transformers
+torch
+accelerate
+langchain_community

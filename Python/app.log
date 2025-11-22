@@ -1,0 +1,11 @@
+2025-09-09 01:44:21,416 - INFO - This is a test log message.
+2025-09-09 01:44:21,417 - INFO - This is another log message.
+2025-09-09 01:44:23,418 - INFO - Inside the timed block.
+2025-09-09 01:44:23,418 - INFO - My Code Block executed in 2.0005 seconds
+2025-09-09 01:44:40,805 - INFO - This is a test log message.
+2025-09-09 01:44:40,805 - INFO - This is another log message.
+2025-09-09 01:44:45,733 - INFO - This is a test log message.
+2025-09-09 01:44:45,733 - INFO - This is another log message.
+2025-09-09 01:46:40,629 - INFO - Inside the timed block.
+2025-09-09 01:46:40,629 - INFO - My Code Block executed in 2.0008 seconds
+2025-09-09 01:46:40,629 - INFO - Outside the timed block.
