@@ -1,9 +1,5 @@
-# we will do pydantic libraries ! 
 from enum import Enum
 from pydantic import BaseModel
-from typing import Optional
-from datetime import date
-
 
 
 class BandType(str, Enum):
@@ -13,15 +9,14 @@ class BandType(str, Enum):
     BLACK_OTHER = "Black-other"
 
 
-
-class Album(BaseModel):
-    title : str 
-    release_date: date 
-
-
 class Band(BaseModel):
     id:int 
     name:str
-    type: Optional[BandType] = None
-    albums : Optional[list[Album]] = None
- 
+    type:BandType
+    albums: list['Album'] = []
+
+
+class Album(BaseModel):
+    title:str
+    release_date:str
+    genre:str
