@@ -1,5 +1,6 @@
 from fastapi import FastAPI,HTTPException
 from pydantik import BandType , Band
+from datetime import date
 
 
 app = FastAPI()
@@ -8,10 +9,10 @@ app = FastAPI()
 
 BANDS = [
 
-    {'id': 1, 'name': 'Led Zeppelin' , 'type':"White"},
-    {'id': 2, 'name': 'The Beatles' , 'type':"Black-white"},
-    {'id': 3, 'name': 'Rolling Stones' , 'type':"Black"},
-    {'id': 4, 'name': 'The Who' , 'type':"Black-other"},
+    {'id': 1, 'name': 'Led Zeppelin', 'type': BandType.WHITE},
+    {'id': 2, 'name': 'The Beatles', 'type': BandType.BLACK_WHITE},
+    {'id': 3, 'name': 'Rolling Stones', 'type': BandType.BLACK, 'albums': [{'title': 'the nigga of America!', 'release_date': date(2023, 1, 1)}]},
+    {'id': 4, 'name': 'The Who', 'type': BandType.BLACK_OTHER},
 ]
 
 @app.get('/bands')
@@ -19,11 +20,11 @@ async def get_bands()->list[Band]:
     return [Band(**band) for band in BANDS]
 
 @app.get('/bands/{band_id}')
-async def band(band_id: int) -> dict:
-    band = next((b for b in BANDS if b['id'] == band_id), None)
-    if band is None:
+async def band(band_id: int) -> Band:
+    band_dict = next((b for b in BANDS if b['id'] == band_id), None)
+    if band_dict is None:
         raise HTTPException(status_code=404, detail="Band not found!")
-    return band 
+    return Band(**band_dict) 
 
 
 @app.get('/')
